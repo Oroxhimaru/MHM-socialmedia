@@ -1,23 +1,64 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
+import Navbar from './components/navbar/Navbar';
+import RightBar from "./components/rightBar/RightBar";
+import LeftBar from './components/leftBar/LeftBar';
+import Home from './pages/home/Home';
+import Profile from './pages/profile/Profile';
 
 function App() {
+
+  // outlet router working
+  const Layout = () => {
+    return(
+      <div>
+        <Navbar />
+        <div style={{display: 'flex'}}>
+          <RightBar />
+          <Outlet />
+          <LeftBar />
+        </div>
+      </div>
+    )
+  }
+
+
+//router of register and login
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/profile/:id",
+          element: <Profile />,
+        },
+      ]
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <RouterProvider router={router} />    
     </div>
   );
 }
