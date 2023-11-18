@@ -4,6 +4,7 @@ import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import {
   createBrowserRouter,
+  Navigate,
   Outlet,
   RouterProvider,
 } from "react-router-dom";
@@ -12,29 +13,43 @@ import RightBar from "./components/rightBar/RightBar";
 import LeftBar from './components/leftBar/LeftBar';
 import Home from './pages/home/Home';
 import Profile from './pages/profile/Profile';
+import './style.scss';
 
 function App() {
+  
+  // without backend just for client side 
+  const currentUser = true;
+
+  //protect the route, transfer into login page if not login
+  const ProtectedRoute = ({ children }) => {
+    if(!currentUser){
+      return <Navigate  to="/login" />;
+    }
+    return children
+  };
 
   // outlet router working
   const Layout = () => {
     return(
-      <div>
+      <div className='theme-dark'>
         <Navbar />
         <div style={{display: 'flex'}}>
-          <RightBar />
-          <Outlet />
           <LeftBar />
+          <div style={{ flex: 6 }}>
+          <Outlet />
+          </div>
+          <RightBar />
         </div>
       </div>
     )
   }
 
 
-//router of register and login
+//router of register and login and many (the child of protectedRoute is layout here )
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
+      element: <ProtectedRoute><Layout /></ProtectedRoute>,
       children: [
         {
           path: "/",
