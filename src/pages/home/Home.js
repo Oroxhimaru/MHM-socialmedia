@@ -1,33 +1,13 @@
 import React from 'react';
 import './home.scss';
+import Stories from '../../components/stories/Stories';
+import Posts from '../../components/posts/Posts';
 
 const Home = () => {
   return (
     <div className='home'> 
-    <h1>gome</h1>
-    <h1>gome</h1>
-    <h1>gome</h1>
-    v
-    v
-    v<h1>gome</h1>
-    vv
-    vv
-    v
-    <h1>gome</h1>
-    <h1>gome</h1>
-    v
-    v
-    <h1>gome</h1>
-    <h1>gome</h1>
-    <h1>gome</h1>
-    <h1>gome</h1>
-    <h1>gome</h1>
-    <h1>gome</h1>
-    <h1>gome</h1>
-    <h1>gome</h1>
-    <h1>gome</h1>
-    <h1>gome</h1>
-    <h1>gome</h1>
+    <Stories />
+    <Posts />
     </div>
   )
 }

@@ -22,7 +22,7 @@
            h1{
             font-size: 100px;
            }
-           p{}
+           
            span{
             font-size: 14px;
            }
@@ -67,4 +67,17 @@
             }
         }
     }
+    // Media Query for Tablets
+    @media (max-width: 768px) {
+        .card {
+          width: 90%; /* Adjust the width based on your preference */
+        }
+      }
+    
+      // Media Query for Mobile Devices
+      @media (max-width: 480px) {
+        .card {
+          width: 100%; /* Adjust the width based on your preference */
+        }
+      }
 }

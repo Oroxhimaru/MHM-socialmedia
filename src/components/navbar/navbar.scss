@@ -13,6 +13,7 @@
     top: 0;
     background-color: themed('bg');
     color:themed("textColor");
+    z-index: 999; //coz story and post section overflowing navbar
     
     .left{
         display: flex;
@@ -38,6 +39,14 @@
               width: 500px;
               color: themed("textColor");
               background: transparent;
+              
+              @include mobile{
+                display: none;
+              }
+    
+              @include tablet{
+                width: 200px;
+              }
             }
         }
         
@@ -46,12 +55,21 @@
         display: flex;
         align-items: center;
         gap: 20px;
+      
         
+        @include mobile{
+            display: none;
+          }
+
         .user{
             display: flex;
             align-items: center;
             gap: 10px;
         font-weight: 500;
+        
+        @include tablet{
+            display: none;
+          }
         
         img{
             width: 30px;

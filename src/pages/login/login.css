@@ -1,0 +1,13 @@
+
+  @media (max-width: 768px) {
+    .login{
+        height: auto;
+    }
+    }
+
+ 
+  @media (max-width: 480px) {
+    .login{
+        height: auto;
+    }
+      }

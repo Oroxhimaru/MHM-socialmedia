@@ -1,6 +1,7 @@
 import React from 'react';
 import './register.scss';
 import { Link } from 'react-router-dom';
+import './register.css';
 
 const Register = () => {
   return (

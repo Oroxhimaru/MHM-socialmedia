@@ -1,0 +1,32 @@
+/* responsive.css */
+
+@media (max-width: 480px) {
+    .register {
+      height: auto;
+    }
+  
+    .card {
+      width: 100%;
+      flex-direction: column;
+    }
+  
+    .left,
+    .right {
+      padding: 20px;
+      width: 100%;
+    }
+  
+    .right {
+      overflow-y: auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .register{
+        height: auto;
+    }
+    .card {
+      width: 90%;
+      flex-direction: column; /* Adjust the width based on your preference */
+    }
+  }

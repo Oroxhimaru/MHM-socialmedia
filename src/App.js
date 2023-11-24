@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.css';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
@@ -14,11 +14,17 @@ import LeftBar from './components/leftBar/LeftBar';
 import Home from './pages/home/Home';
 import Profile from './pages/profile/Profile';
 import './style.scss';
+import { DarkModeContext } from './context/DarkModeContext';
+import { AuthContext } from './context/AuthContext';
 
 function App() {
   
+  //useContextt work
+  const {darkMode} = useContext(DarkModeContext)
+
   // without backend just for client side 
-  const currentUser = true;
+  /*const currentUser = true; */
+  const {currentUser} = useContext(AuthContext);
 
   //protect the route, transfer into login page if not login
   const ProtectedRoute = ({ children }) => {
@@ -31,7 +37,7 @@ function App() {
   // outlet router working
   const Layout = () => {
     return(
-      <div className='theme-dark'>
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <Navbar />
         <div style={{display: 'flex'}}>
           <LeftBar />

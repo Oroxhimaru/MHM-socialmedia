@@ -81,4 +81,28 @@
         }
       }
     }
+
+
+
+     // Media Query for Tablets
+  @media (max-width: 768px) {
+    .card {
+      width: 90%;
+      flex-direction: column; /* Adjust the width based on your preference */
+    }
+  }
+
+  // Media Query for Mobile Devices
+  @media (max-width: 480px) {
+    .card {
+      width: 100%;
+      flex-direction: column; /* Adjust the width based on your preference */
+    }
+
+    .left,
+    .right {
+      padding: 20px; /* Adjust the padding based on your preference */
+      width: 100%; 
+    }
+  }
   }
